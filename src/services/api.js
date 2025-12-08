@@ -2,6 +2,7 @@ const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
 const BASE_URL = 'https://www.omdbapi.com/';
 const TIMEOUT_MS = 10000; // 10 seconds
 const MAX_RETRIES = 2;
+const RETRY_DELAY_MS = 1000; // Base delay for exponential backoff
 
 /**
  * Fetch with timeout support
@@ -39,7 +40,7 @@ async function fetchWithRetry(url, options = {}, retries = MAX_RETRIES) {
       lastError = error;
       if (i < retries) {
         // Wait before retry with exponential backoff
-        await new Promise(resolve => setTimeout(resolve, 1000 * Math.pow(2, i)));
+        await new Promise(resolve => setTimeout(resolve, RETRY_DELAY_MS * Math.pow(2, i)));
       }
     }
   }
