@@ -272,7 +272,7 @@ export default function MovieDetails() {
             </div>
 
             {/* Awards */}
-            {movie.Awards && movie.Awards !== 'N/A' && movie.Awards !== 'N/A' && (
+            {movie.Awards && movie.Awards !== 'N/A' && (
               <div className="mt-4 p-4 bg-gray-800/50 rounded-lg">
                 <h3 className="text-sm font-semibold text-gray-400 mb-2 flex items-center gap-2">
                   🏆 Awards

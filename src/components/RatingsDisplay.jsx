@@ -24,7 +24,7 @@ export default function RatingsDisplay({ movie }) {
     const isFresh = percentage >= 60;
     return {
       emoji: isFresh ? '🍅' : '🤢',
-      color: isFresh ? 'text-red-500' : 'text-green-600'
+      color: isFresh ? 'text-green-500' : 'text-red-500'
     };
   };
 
