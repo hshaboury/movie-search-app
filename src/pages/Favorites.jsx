@@ -5,6 +5,8 @@ import EmptyFavorites from '../components/EmptyFavorites';
 import SortControls from '../components/SortControls';
 import ConfirmModal from '../components/ConfirmModal';
 
+const REMOVE_ANIMATION_DURATION = 300; // milliseconds - matches CSS animation
+
 export default function Favorites() {
   const { favorites, removeFavorite, clearAllFavorites, getFavoritesSorted } = useFavorites();
   
@@ -52,7 +54,7 @@ export default function Favorites() {
           newSet.delete(movieToRemove.imdbID);
           return newSet;
         });
-      }, 300);
+      }, REMOVE_ANIMATION_DURATION);
     }
     setRemoveModalOpen(false);
     setMovieToRemove(null);

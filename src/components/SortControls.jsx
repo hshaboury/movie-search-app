@@ -78,23 +78,20 @@ export default function SortControls({ sortBy, order, onSortChange }) {
         {isDropdownOpen && (
           <div className="absolute top-full mt-2 bg-gray-800 rounded-lg shadow-xl border border-gray-700 z-10 min-w-[200px]">
             {sortOptions.map((option) =>
-              option.orders.map((orderValue, idx) => (
-                <button
-                  key={`${option.value}-${orderValue}`}
-                  onClick={() => handleSortSelect(option.value, orderValue)}
-                  className={`block w-full text-left px-4 py-3 hover:bg-gray-700 transition-colors ${
-                    sortBy === option.value && order === orderValue
-                      ? 'bg-blue-600 text-white'
-                      : 'text-gray-300'
-                  } ${idx === 0 ? 'rounded-t-lg' : ''} ${
-                    idx === option.orders.length - 1 && option.value === sortOptions[sortOptions.length - 1].value
-                      ? 'rounded-b-lg'
-                      : ''
-                  }`}
-                >
-                  {option.label} - {option.orderLabels[idx]}
-                </button>
-              ))
+              option.orders.map((orderValue, idx) => {
+                const isActive = sortBy === option.value && order === orderValue;
+                return (
+                  <button
+                    key={`${option.value}-${orderValue}`}
+                    onClick={() => handleSortSelect(option.value, orderValue)}
+                    className={`block w-full text-left px-4 py-3 hover:bg-gray-700 transition-colors ${
+                      isActive ? 'bg-blue-600 text-white' : 'text-gray-300'
+                    }`}
+                  >
+                    {option.label} - {option.orderLabels[idx]}
+                  </button>
+                );
+              })
             )}
           </div>
         )}
