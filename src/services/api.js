@@ -118,7 +118,9 @@ export async function searchMovies(query, page = 1) {
       currentPage: page
     };
   } catch (error) {
-    console.error('Error searching movies:', error);
+    if (import.meta.env.DEV) {
+      console.error('Error searching movies:', error);
+    }
     const categorizedError = categorizeError(error.message);
     return {
       success: false,
@@ -142,7 +144,9 @@ export async function getMovieDetails(imdbId) {
     
     return data;
   } catch (error) {
-    console.error('Error getting movie details:', error);
+    if (import.meta.env.DEV) {
+      console.error('Error getting movie details:', error);
+    }
     throw error;
   }
 }
