@@ -88,6 +88,62 @@ src/
 - `npm run preview` - Preview production build
 - `npm run lint` - Run ESLint
 
+## 🚀 Deployment
+
+### Deploy to Vercel (Recommended)
+
+1. **Push your code to GitHub** (if not already done)
+
+2. **Connect to Vercel**
+   - Go to [vercel.com](https://vercel.com)
+   - Sign in with GitHub
+   - Click "New Project"
+   - Import your `movie-search-app` repository
+
+3. **Configure Environment Variables**
+   - In Vercel dashboard, go to Settings → Environment Variables
+   - Add: `VITE_OMDB_API_KEY` = `your_api_key_here`
+
+4. **Deploy**
+   - Vercel will automatically build and deploy
+   - You'll get a live URL like: `https://movie-search-app-username.vercel.app`
+
+### Deploy to Netlify (Alternative)
+
+1. Go to [netlify.com](https://netlify.com)
+2. Click "New site from Git"
+3. Connect your GitHub repository
+4. Build settings:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+5. Add environment variable: `VITE_OMDB_API_KEY`
+6. Deploy!
+
+### Deploy to GitHub Pages
+
+1. Install gh-pages: `npm install --save-dev gh-pages`
+2. Add to package.json scripts:
+   ```json
+   "predeploy": "npm run build",
+   "deploy": "gh-pages -d dist"
+   ```
+3. Run: `npm run deploy`
+
+## 🔗 Live Demo
+
+[View Live Demo](https://your-deployment-url.vercel.app)
+
+## ✅ Production Checklist
+
+- [x] API key is set in environment variables (not in code)
+- [x] All console.log statements removed or conditional
+- [x] Error boundaries in place
+- [x] Meta tags configured for SEO
+- [x] Favicon and app icons set
+- [ ] Performance tested (Lighthouse)
+- [ ] Mobile responsiveness verified
+- [ ] All links working
+
 ## 🎯 Usage
 
 1. **Search for Movies** - Enter a movie title in the search bar on the home page
