@@ -177,14 +177,7 @@
     outline-offset: 2px;
   }
 
-  /* Aspect ratio utilities */
-  .aspect-2-3 {
-    aspect-ratio: 2/3;
-  }
 
-  .aspect-16-9 {
-    aspect-ratio: 16/9;
-  }
 
   /* Smooth scrolling container */
   .smooth-scroll {

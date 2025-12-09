@@ -213,7 +213,7 @@ export default function MovieDetails() {
           {/* Plot */}
           <div>
             <h2 className="text-lg sm:text-xl font-semibold mb-3 text-gray-300">Plot</h2>
-            <p className="text-gray-200 leading-relaxed text-sm sm:text-base" style={{ lineHeight: '1.6' }}>{displayPlot}</p>
+            <p className="text-gray-200 leading-relaxed text-sm sm:text-base">{displayPlot}</p>
             {shouldTruncatePlot && (
               <button
                 onClick={() => setExpandPlot(!expandPlot)}
