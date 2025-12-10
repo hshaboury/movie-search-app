@@ -60,7 +60,9 @@ export function useMovieFilters(movies) {
         const yearB = parseInt(b.Year) || 0;
         comparison = yearA - yearB;
       } else if (sortBy === 'title') {
-        comparison = a.Title.localeCompare(b.Title);
+        const titleA = a.Title || '';
+        const titleB = b.Title || '';
+        comparison = titleA.localeCompare(titleB);
       }
 
       return sortOrder === 'asc' ? comparison : -comparison;
