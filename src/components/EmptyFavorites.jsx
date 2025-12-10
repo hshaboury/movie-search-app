@@ -21,8 +21,8 @@ export default function EmptyFavorites() {
       </svg>
 
       {/* Message */}
-      <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-gray-700 dark:text-gray-300">No favorites yet!</h2>
-      <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg mb-8 max-w-md mx-auto px-4">
+      <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-slate-700 dark:text-gray-300">No favorites yet!</h2>
+      <p className="text-slate-600 dark:text-gray-400 text-base sm:text-lg mb-8 max-w-md mx-auto px-4">
         Start exploring movies and add your favorites to see them here.
       </p>
 

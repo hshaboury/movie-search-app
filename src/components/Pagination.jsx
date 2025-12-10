@@ -100,15 +100,15 @@ export default function Pagination({
             disabled={currentPage === 1}
             className={`px-3 py-2 rounded-lg font-medium transition-colors min-h-[44px] ${
               currentPage === 1
-                ? 'bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 cursor-not-allowed'
-                : 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 active:scale-95'
+                ? 'bg-slate-100 dark:bg-gray-800 text-slate-400 dark:text-gray-500 cursor-not-allowed'
+                : 'bg-white dark:bg-gray-800 text-slate-700 dark:text-gray-300 border border-slate-300 dark:border-gray-600 hover:bg-slate-100 dark:hover:bg-gray-700 shadow-sm active:scale-95'
             }`}
             aria-label="Previous page"
           >
             ‹ Prev
           </button>
           
-          <div className="px-4 py-2 text-gray-900 dark:text-white text-sm">
+          <div className="px-4 py-2 text-slate-900 dark:text-white text-sm">
             Page <span className="font-bold">{currentPage}</span> of <span className="font-bold">{totalPages}</span>
           </div>
           
@@ -117,8 +117,8 @@ export default function Pagination({
             disabled={currentPage === totalPages}
             className={`px-3 py-2 rounded-lg font-medium transition-colors min-h-[44px] ${
               currentPage === totalPages
-                ? 'bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 cursor-not-allowed'
-                : 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 active:scale-95'
+                ? 'bg-slate-100 dark:bg-gray-800 text-slate-400 dark:text-gray-500 cursor-not-allowed'
+                : 'bg-white dark:bg-gray-800 text-slate-700 dark:text-gray-300 border border-slate-300 dark:border-gray-600 hover:bg-slate-100 dark:hover:bg-gray-700 shadow-sm active:scale-95'
             }`}
             aria-label="Next page"
           >
@@ -126,7 +126,7 @@ export default function Pagination({
           </button>
         </div>
         
-        <div className="text-gray-600 dark:text-gray-400 text-xs">
+        <div className="text-slate-600 dark:text-gray-400 text-xs">
           Showing {resultsStart}-{resultsEnd} of {totalResults} results
         </div>
       </div>
@@ -145,8 +145,8 @@ export default function Pagination({
           disabled={currentPage === 1}
           className={`px-2 sm:px-3 py-2 rounded-lg transition-colors min-h-[44px] ${
             currentPage === 1
-              ? 'bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 cursor-not-allowed'
-              : 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 active:scale-95'
+              ? 'bg-slate-100 dark:bg-gray-800 text-slate-400 dark:text-gray-500 cursor-not-allowed'
+              : 'bg-white dark:bg-gray-800 text-slate-700 dark:text-gray-300 border border-slate-300 dark:border-gray-600 hover:bg-slate-100 dark:hover:bg-gray-700 shadow-sm active:scale-95'
           }`}
           aria-label="First page"
           title="First page"
@@ -160,8 +160,8 @@ export default function Pagination({
           disabled={currentPage === 1}
           className={`px-2 sm:px-3 py-2 rounded-lg transition-colors min-h-[44px] ${
             currentPage === 1
-              ? 'bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 cursor-not-allowed'
-              : 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 active:scale-95'
+              ? 'bg-slate-100 dark:bg-gray-800 text-slate-400 dark:text-gray-500 cursor-not-allowed'
+              : 'bg-white dark:bg-gray-800 text-slate-700 dark:text-gray-300 border border-slate-300 dark:border-gray-600 hover:bg-slate-100 dark:hover:bg-gray-700 shadow-sm active:scale-95'
           }`}
           aria-label="Previous page"
           title="Previous page"
@@ -175,7 +175,7 @@ export default function Pagination({
             return (
               <span
                 key={`dots-${index}`}
-                className="px-2 text-gray-500 dark:text-gray-500"
+                className="px-2 text-slate-500 dark:text-gray-500"
                 aria-hidden="true"
               >
                 ...
@@ -189,8 +189,8 @@ export default function Pagination({
               onClick={() => handlePageClick(page)}
               className={`px-3 sm:px-4 py-2 rounded-lg transition-colors min-h-[44px] ${
                 page === currentPage
-                  ? 'bg-blue-600 text-white font-bold'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 active:scale-95'
+                  ? 'bg-blue-600 text-white font-bold border-blue-600'
+                  : 'bg-white dark:bg-gray-800 text-slate-700 dark:text-gray-300 border border-slate-300 dark:border-gray-600 hover:bg-slate-100 dark:hover:bg-gray-700 shadow-sm active:scale-95'
               }`}
               aria-label={`Page ${page}`}
               aria-current={page === currentPage ? 'page' : undefined}
@@ -232,7 +232,7 @@ export default function Pagination({
       </div>
 
       {/* Results Info */}
-      <div className="text-gray-600 dark:text-gray-400 text-sm">
+      <div className="text-slate-600 dark:text-gray-400 text-sm">
         Showing {resultsStart}-{resultsEnd} of {totalResults} results
       </div>
     </div>
