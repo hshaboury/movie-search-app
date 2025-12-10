@@ -1,6 +1,6 @@
 import MovieCard from './MovieCard';
 
-export default function MovieList({ movies, totalResults }) {
+export default function MovieList({ movies, totalResults, currentPage = 1 }) {
   if (!movies || movies.length === 0) {
     return (
       <div className="text-center py-12">
@@ -9,13 +9,16 @@ export default function MovieList({ movies, totalResults }) {
     );
   }
 
+  const resultsStart = ((currentPage - 1) * 10) + 1;
+  const resultsEnd = Math.min(currentPage * 10, totalResults);
+
   return (
     <div className="animate-fadeIn">
       {/* Results Count Header */}
       {totalResults > 0 && (
         <div className="mb-6">
           <p className="text-gray-400 text-center text-sm sm:text-base">
-            Showing <span className="text-white font-semibold">{movies.length}</span> of{' '}
+            Showing <span className="text-white font-semibold">{resultsStart}-{resultsEnd}</span> of{' '}
             <span className="text-white font-semibold">{totalResults}</span> results
           </p>
         </div>
