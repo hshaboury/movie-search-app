@@ -10,10 +10,15 @@ export function useMovieSearch() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [totalResults, setTotalResults] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const search = async (query, page = 1) => {
     setLoading(true);
     setError(null);
+    setSearchQuery(query);
+    setCurrentPage(page);
 
     try {
       const result = await searchMovies(query, page);
@@ -21,10 +26,12 @@ export function useMovieSearch() {
       if (result.success) {
         setMovies(result.movies);
         setTotalResults(result.totalResults);
+        setTotalPages(result.totalPages);
       } else {
         setError(result.error);
         setMovies([]);
         setTotalResults(0);
+        setTotalPages(0);
       }
     } catch (err) {
       setError({
@@ -33,8 +40,17 @@ export function useMovieSearch() {
       });
       setMovies([]);
       setTotalResults(0);
+      setTotalPages(0);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const goToPage = async (page) => {
+    if (searchQuery && page >= 1 && page <= totalPages) {
+      // Scroll to top of results
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      await search(searchQuery, page);
     }
   };
 
@@ -42,6 +58,9 @@ export function useMovieSearch() {
     setMovies([]);
     setError(null);
     setTotalResults(0);
+    setCurrentPage(1);
+    setTotalPages(0);
+    setSearchQuery('');
   };
 
   return {
@@ -49,7 +68,11 @@ export function useMovieSearch() {
     loading,
     error,
     totalResults,
+    currentPage,
+    totalPages,
+    searchQuery,
     search,
+    goToPage,
     clearResults
   };
 }

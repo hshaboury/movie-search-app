@@ -3,29 +3,32 @@ import SearchBar from '../components/SearchBar';
 import MovieList from '../components/MovieList';
 import MovieCardSkeleton from '../components/MovieCardSkeleton';
 import Error from '../components/Error';
+import Pagination from '../components/Pagination';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { useMovieSearch } from '../hooks/useMovieSearch';
 
 const MAX_HISTORY_ITEMS = 5;
 
 export default function Home() {
-  const { movies, loading, error, totalResults, search, clearResults } = useMovieSearch();
+  const { movies, loading, error, totalResults, currentPage, totalPages, searchQuery, search, goToPage, clearResults } = useMovieSearch();
   const [hasSearched, setHasSearched] = useState(false);
   const [searchHistory, setSearchHistory] = useLocalStorage('searchHistory', []);
-  const [lastQuery, setLastQuery] = useState('');
 
   const handleSearch = async (query) => {
-    if (!query || query === lastQuery) return;
+    if (!query || query === searchQuery) return;
     
-    setLastQuery(query);
     setHasSearched(true);
-    await search(query);
+    await search(query, 1); // Always start from page 1 on new search
     
     // Add to search history
     setSearchHistory((prev) => {
       const filtered = prev.filter((item) => item.toLowerCase() !== query.toLowerCase());
       return [query, ...filtered].slice(0, MAX_HISTORY_ITEMS);
     });
+  };
+
+  const handlePageChange = (page) => {
+    goToPage(page);
   };
 
   const handleHistoryClick = (query) => {
@@ -37,15 +40,14 @@ export default function Home() {
   };
 
   const handleRetry = () => {
-    if (lastQuery) {
-      handleSearch(lastQuery);
+    if (searchQuery) {
+      handleSearch(searchQuery);
     }
   };
 
   const handleClearSearch = () => {
     clearResults();
     setHasSearched(false);
-    setLastQuery('');
   };
 
   return (
@@ -125,8 +127,8 @@ export default function Home() {
             <div className="text-center mb-6">
               <p className="text-lg sm:text-xl">
                 Found <span className="text-blue-400 font-bold">{totalResults}</span> movies
-                {lastQuery && (
-                  <span className="text-gray-400"> for "{lastQuery}"</span>
+                {searchQuery && (
+                  <span className="text-gray-400"> for "{searchQuery}"</span>
                 )}
               </p>
               <button
@@ -137,7 +139,19 @@ export default function Home() {
               </button>
             </div>
           )}
-          <MovieList movies={movies} totalResults={totalResults} />
+          <MovieList 
+            movies={movies} 
+            totalResults={totalResults}
+            currentPage={currentPage}
+          />
+          {totalResults > 0 && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              totalResults={totalResults}
+              onPageChange={handlePageChange}
+            />
+          )}
         </>
       )}
     </div>

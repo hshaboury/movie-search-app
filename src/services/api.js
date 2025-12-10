@@ -107,7 +107,8 @@ export async function searchMovies(query, page = 1) {
         error,
         movies: [],
         totalResults: 0,
-        currentPage: page
+        currentPage: page,
+        totalPages: 0
       };
     }
     
@@ -115,7 +116,8 @@ export async function searchMovies(query, page = 1) {
       success: true,
       movies: data.Search || [],
       totalResults: parseInt(data.totalResults) || 0,
-      currentPage: page
+      currentPage: page,
+      totalPages: Math.ceil(parseInt(data.totalResults) / 10) || 0
     };
   } catch (error) {
     if (import.meta.env.DEV) {
@@ -127,7 +129,8 @@ export async function searchMovies(query, page = 1) {
       error: categorizedError,
       movies: [],
       totalResults: 0,
-      currentPage: page
+      currentPage: page,
+      totalPages: 0
     };
   }
 }
