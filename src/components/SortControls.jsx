@@ -20,7 +20,7 @@ export default function SortControls({ sortBy, order, onSortChange }) {
 
   return (
     <div className="flex flex-wrap items-center gap-4 mb-6">
-      <span className="text-gray-600 dark:text-gray-400 font-medium">Sort by:</span>
+      <span className="text-slate-600 dark:text-gray-400 font-medium">Sort by:</span>
 
       {/* Desktop: Button Group */}
       <div className="hidden md:flex gap-2">
@@ -43,8 +43,8 @@ export default function SortControls({ sortBy, order, onSortChange }) {
               }}
               className={`px-4 py-2 rounded-lg font-medium transition-all ${
                 isActive
-                  ? 'bg-blue-600 text-white shadow-lg'
-                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                  ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
+                  : 'bg-slate-100 dark:bg-gray-700 text-slate-700 dark:text-gray-300 hover:bg-slate-200 dark:hover:bg-gray-600 border border-slate-200 dark:border-gray-600'
               }`}
             >
               {option.label}
@@ -62,7 +62,7 @@ export default function SortControls({ sortBy, order, onSortChange }) {
       <div className="md:hidden relative">
         <button
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2"
+          className="bg-slate-100 dark:bg-gray-700 text-slate-700 dark:text-gray-300 hover:bg-slate-200 dark:hover:bg-gray-600 px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2 border border-slate-200 dark:border-gray-600"
         >
           {currentOption.label} ({currentOrderLabel})
           <svg
@@ -76,7 +76,7 @@ export default function SortControls({ sortBy, order, onSortChange }) {
         </button>
 
         {isDropdownOpen && (
-          <div className="absolute top-full mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 z-10 min-w-[200px]">
+          <div className="absolute top-full mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-slate-200 dark:border-gray-700 z-10 min-w-[200px]">
             {sortOptions.map((option) =>
               option.orders.map((orderValue, idx) => {
                 const isActive = sortBy === option.value && order === orderValue;
@@ -84,8 +84,8 @@ export default function SortControls({ sortBy, order, onSortChange }) {
                   <button
                     key={`${option.value}-${orderValue}`}
                     onClick={() => handleSortSelect(option.value, orderValue)}
-                    className={`block w-full text-left px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${
-                      isActive ? 'bg-blue-600 text-white' : 'text-gray-700 dark:text-gray-300'
+                    className={`block w-full text-left px-4 py-3 hover:bg-slate-100 dark:hover:bg-gray-700 transition-colors ${
+                      isActive ? 'bg-blue-600 text-white' : 'text-slate-700 dark:text-gray-300'
                     }`}
                   >
                     {option.label} - {option.orderLabels[idx]}
