@@ -107,7 +107,8 @@ export async function searchMovies(query, page = 1) {
         error,
         movies: [],
         totalResults: 0,
-        currentPage: page
+        currentPage: page,
+        totalPages: 0
       };
     }
     
@@ -128,7 +129,8 @@ export async function searchMovies(query, page = 1) {
       error: categorizedError,
       movies: [],
       totalResults: 0,
-      currentPage: page
+      currentPage: page,
+      totalPages: 0
     };
   }
 }
