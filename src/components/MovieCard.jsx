@@ -14,7 +14,7 @@ export default function MovieCard({ movie }) {
 
   return (
     <Link to={`/movie/${movie.imdbID}`} className="block group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg">
-      <div className="card h-full relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-[1.02]">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg border border-gray-200 dark:border-gray-700 h-full relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-[1.02]">
         {/* Favorite Heart Icon Overlay */}
         {isInFavorites && (
           <div className="absolute top-2 right-2 z-10 bg-red-500 rounded-full p-2 shadow-lg min-w-[32px] min-h-[32px] flex items-center justify-center">
@@ -34,7 +34,7 @@ export default function MovieCard({ movie }) {
         
         {/* Image Loading State */}
         {!imageLoaded && !imageError && (
-          <div className="w-full aspect-[2/3] bg-gray-700 animate-pulse" />
+          <div className="w-full aspect-[2/3] bg-gray-200 dark:bg-gray-700 animate-pulse" />
         )}
         
         {/* Movie Poster */}
@@ -55,10 +55,10 @@ export default function MovieCard({ movie }) {
         
         {/* Movie Info */}
         <div className="p-3 sm:p-4">
-          <h3 className="text-base sm:text-lg font-semibold mb-1 line-clamp-2 group-hover:text-blue-400 transition-colors leading-snug">
+          <h3 className="text-base sm:text-lg font-semibold mb-1 line-clamp-2 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
             {movie.Title}
           </h3>
-          <p className="text-gray-400 text-sm">{movie.Year}</p>
+          <p className="text-gray-500 dark:text-gray-400 text-sm">{movie.Year}</p>
         </div>
       </div>
     </Link>

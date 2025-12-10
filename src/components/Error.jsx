@@ -66,13 +66,13 @@ export default function Error({ message, error, onRetry }) {
       <div className="text-5xl sm:text-6xl mb-4">
         {errorDisplay.icon}
       </div>
-      <h3 className="text-xl sm:text-2xl font-semibold mb-2">{errorDisplay.title}</h3>
-      <p className="text-gray-400 max-w-md mb-4 text-sm sm:text-base">{errorMessage}</p>
+      <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-gray-900 dark:text-white">{errorDisplay.title}</h3>
+      <p className="text-gray-600 dark:text-gray-400 max-w-md mb-4 text-sm sm:text-base">{errorMessage}</p>
       
       {errorDisplay.suggestions && errorDisplay.suggestions.length > 0 && (
-        <div className="bg-gray-800 rounded-lg p-4 max-w-md mb-4">
-          <p className="text-sm font-semibold mb-2">Suggestions:</p>
-          <ul className="text-sm text-gray-400 text-left list-disc list-inside">
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 max-w-md mb-4 border border-gray-200 dark:border-gray-700">
+          <p className="text-sm font-semibold mb-2 text-gray-900 dark:text-white">Suggestions:</p>
+          <ul className="text-sm text-gray-600 dark:text-gray-400 text-left list-disc list-inside">
             {errorDisplay.suggestions.map((suggestion, index) => (
               <li key={index}>{suggestion}</li>
             ))}

@@ -41,7 +41,7 @@ export default function SearchBar({ onSearch, placeholder = 'Search for movies..
       <div className="flex flex-col gap-2">
         <div className="relative flex flex-col sm:flex-row gap-2">
           {/* Search Icon */}
-          <div className="absolute left-4 top-3 sm:top-1/2 sm:-translate-y-1/2 text-gray-400 pointer-events-none z-10">
+          <div className="absolute left-4 top-3 sm:top-1/2 sm:-translate-y-1/2 text-gray-500 dark:text-gray-400 pointer-events-none z-10">
             <svg
               className="w-5 h-5 sm:w-5 sm:h-5"
               fill="none"
@@ -67,7 +67,7 @@ export default function SearchBar({ onSearch, placeholder = 'Search for movies..
             }}
             onKeyDown={handleKeyDown}
             placeholder={placeholder}
-            className="w-full pl-12 pr-12 py-3 sm:py-3 text-base sm:text-base bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus-visible:ring-2 focus-visible:ring-blue-500 disabled:opacity-50 min-h-[44px]"
+            className="w-full pl-12 pr-12 py-3 sm:py-3 text-base sm:text-base bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus-visible:ring-2 focus-visible:ring-blue-500 disabled:opacity-50 min-h-[44px] border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400"
             aria-label="Search for movies"
             disabled={loading}
           />
@@ -77,7 +77,7 @@ export default function SearchBar({ onSearch, placeholder = 'Search for movies..
             <button
               type="button"
               onClick={handleClear}
-              className="absolute right-3 top-3 sm:right-[7.5rem] sm:top-1/2 sm:-translate-y-1/2 text-gray-400 hover:text-white transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded active:scale-95"
+              className="absolute right-3 top-3 sm:right-[7.5rem] sm:top-1/2 sm:-translate-y-1/2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded active:scale-95"
               aria-label="Clear search"
               disabled={loading}
             >
@@ -132,7 +132,7 @@ export default function SearchBar({ onSearch, placeholder = 'Search for movies..
         
         {/* Validation Error */}
         {validationError && (
-          <p className="text-red-400 text-sm pl-4">{validationError}</p>
+          <p className="text-red-500 dark:text-red-400 text-sm pl-4">{validationError}</p>
         )}
       </div>
     </form>
