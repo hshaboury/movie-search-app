@@ -4,8 +4,10 @@ import MovieList from '../components/MovieList';
 import MovieCardSkeleton from '../components/MovieCardSkeleton';
 import Error from '../components/Error';
 import Pagination from '../components/Pagination';
+import FilterSortBar from '../components/FilterSortBar';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { useMovieSearch } from '../hooks/useMovieSearch';
+import { useMovieFilters } from '../hooks/useMovieFilters';
 
 const MAX_HISTORY_ITEMS = 5;
 
@@ -13,6 +15,20 @@ export default function Home() {
   const { movies, loading, error, totalResults, currentPage, totalPages, searchQuery, search, goToPage, clearResults } = useMovieSearch();
   const [hasSearched, setHasSearched] = useState(false);
   const [searchHistory, setSearchHistory] = useLocalStorage('searchHistory', []);
+  
+  // Use the filter hook
+  const {
+    sortBy,
+    sortOrder,
+    filterType,
+    yearFrom,
+    yearTo,
+    handleSortChange,
+    handleFilterChange,
+    clearFilters,
+    filteredMovies,
+    filteredCount,
+  } = useMovieFilters(movies);
 
   const handleSearch = async (query) => {
     if (!query || query === searchQuery) return;
@@ -139,12 +155,51 @@ export default function Home() {
               </button>
             </div>
           )}
-          <MovieList 
-            movies={movies} 
-            totalResults={totalResults}
-            currentPage={currentPage}
-          />
-          {totalResults > 0 && (
+
+          {/* Filter/Sort Bar - Show only when there are results */}
+          {movies.length > 0 && (
+            <FilterSortBar
+              sortBy={sortBy}
+              sortOrder={sortOrder}
+              filterType={filterType}
+              yearFrom={yearFrom}
+              yearTo={yearTo}
+              onSortChange={handleSortChange}
+              onFilterChange={handleFilterChange}
+              onClear={clearFilters}
+              totalResults={movies.length}
+              filteredCount={filteredCount}
+            />
+          )}
+
+          {/* Empty State After Filtering */}
+          {filteredMovies.length === 0 && movies.length > 0 && (
+            <div className="text-center py-12">
+              <div className="text-4xl mb-4">🔍</div>
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
+                No movies match your filters
+              </h3>
+              <p className="text-slate-600 dark:text-gray-400 mb-4">
+                Try adjusting your filter criteria
+              </p>
+              <button
+                onClick={clearFilters}
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+              >
+                Clear Filters
+              </button>
+            </div>
+          )}
+
+          {/* Results - Use filteredMovies instead of movies */}
+          {filteredMovies.length > 0 && (
+            <MovieList 
+              movies={filteredMovies}
+              totalResults={totalResults}
+              currentPage={currentPage}
+            />
+          )}
+          {totalResults > 0 && filteredMovies.length > 0 && (
             <Pagination
               currentPage={currentPage}
               totalPages={totalPages}

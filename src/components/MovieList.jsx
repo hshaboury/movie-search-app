@@ -10,7 +10,9 @@ export default function MovieList({ movies, totalResults, currentPage = 1 }) {
   }
 
   const resultsStart = ((currentPage - 1) * 10) + 1;
-  const resultsEnd = Math.min(currentPage * 10, totalResults);
+  
+  // When displaying filtered results, show actual count instead of pagination-based count
+  const actualResultsEnd = Math.min(resultsStart - 1 + movies.length, totalResults);
 
   return (
     <div className="animate-fadeIn">
@@ -18,7 +20,7 @@ export default function MovieList({ movies, totalResults, currentPage = 1 }) {
       {totalResults > 0 && (
         <div className="mb-6">
           <p className="text-slate-600 dark:text-gray-400 text-center text-sm sm:text-base">
-            Showing <span className="text-slate-900 dark:text-white font-semibold">{resultsStart}-{resultsEnd}</span> of{' '}
+            Showing <span className="text-slate-900 dark:text-white font-semibold">{resultsStart}-{actualResultsEnd}</span> of{' '}
             <span className="text-slate-900 dark:text-white font-semibold">{totalResults}</span> results
           </p>
         </div>
