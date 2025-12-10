@@ -44,13 +44,13 @@ export default function ConfirmModal({
       aria-labelledby="modal-title"
     >
       <div
-        className="bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4 shadow-xl"
+        className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4 shadow-xl border border-gray-200 dark:border-gray-700"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 id="modal-title" className="text-xl font-bold mb-4">
+        <h2 id="modal-title" className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
           {title}
         </h2>
-        <p className="text-gray-300 mb-6">{message}</p>
+        <p className="text-gray-600 dark:text-gray-300 mb-6">{message}</p>
         <div className="flex gap-3 justify-end">
           <button
             onClick={onCancel}

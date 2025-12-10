@@ -7,7 +7,7 @@ export default function EmptyFavorites() {
     <div className="text-center py-12 sm:py-20 animate-fadeIn">
       {/* Large empty heart icon */}
       <svg
-        className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6 text-gray-600"
+        className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6 text-gray-400 dark:text-gray-600"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -21,8 +21,8 @@ export default function EmptyFavorites() {
       </svg>
 
       {/* Message */}
-      <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-gray-300">No favorites yet!</h2>
-      <p className="text-gray-400 text-base sm:text-lg mb-8 max-w-md mx-auto px-4">
+      <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-gray-700 dark:text-gray-300">No favorites yet!</h2>
+      <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg mb-8 max-w-md mx-auto px-4">
         Start exploring movies and add your favorites to see them here.
       </p>
 

@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useFavorites } from '../context/FavoritesContext';
+import ThemeToggle from './ThemeToggle';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -56,7 +57,7 @@ export default function Navbar() {
   }, [isMenuOpen]);
 
   return (
-    <nav className={`bg-gray-800 shadow-lg mb-8 sticky top-0 z-50 transition-shadow duration-300 ${isSticky ? 'shadow-2xl' : ''}`}>
+    <nav className={`bg-white dark:bg-gray-800 shadow-lg mb-8 sticky top-0 z-50 transition-shadow duration-300 border-b border-gray-200 dark:border-gray-700 ${isSticky ? 'shadow-2xl' : ''}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -65,12 +66,13 @@ export default function Navbar() {
           </NavLink>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex gap-6">
+          <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `text-lg font-medium transition-colors min-h-[44px] flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 rounded px-2 ${
-                  isActive ? 'text-blue-500' : 'text-gray-300 hover:text-white'
+                `text-lg font-medium transition-colors min-h-[44px] flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-800 rounded px-2 ${
+                  isActive ? 'text-blue-500' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
                 }`
               }
             >
@@ -79,8 +81,8 @@ export default function Navbar() {
             <NavLink
               to="/favorites"
               className={({ isActive }) =>
-                `text-lg font-medium transition-colors flex items-center gap-2 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 rounded px-2 ${
-                  isActive ? 'text-blue-500' : 'text-gray-300 hover:text-white'
+                `text-lg font-medium transition-colors flex items-center gap-2 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-800 rounded px-2 ${
+                  isActive ? 'text-blue-500' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
                 }`
               }
             >
@@ -95,7 +97,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-white min-w-[44px] min-h-[44px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded active:scale-95 transition-transform"
+            className="md:hidden text-gray-900 dark:text-white min-w-[44px] min-h-[44px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded active:scale-95 transition-transform"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMenuOpen}
@@ -136,17 +138,20 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <div 
-          className={`fixed top-16 right-0 bottom-0 w-64 bg-gray-800 shadow-2xl z-50 md:hidden transition-transform duration-300 ease-in-out ${
+          className={`fixed top-16 right-0 bottom-0 w-64 bg-white dark:bg-gray-800 shadow-2xl z-50 md:hidden transition-transform duration-300 ease-in-out border-l border-gray-200 dark:border-gray-700 ${
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
           <div className="flex flex-col p-4 space-y-2">
+            <div className="mb-4 pb-4 border-b border-gray-200 dark:border-gray-700">
+              <ThemeToggle />
+            </div>
             <NavLink
               to="/"
               onClick={() => setIsMenuOpen(false)}
               className={({ isActive }) =>
-                `block py-3 px-4 text-lg font-medium transition-colors rounded-lg min-h-[44px] flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 active:bg-gray-700 ${
-                  isActive ? 'text-blue-500 bg-gray-700' : 'text-gray-300 hover:text-white hover:bg-gray-700'
+                `block py-3 px-4 text-lg font-medium transition-colors rounded-lg min-h-[44px] flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 active:bg-gray-100 dark:active:bg-gray-700 ${
+                  isActive ? 'text-blue-500 bg-gray-100 dark:bg-gray-700' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
                 }`
               }
             >
@@ -156,8 +161,8 @@ export default function Navbar() {
               to="/favorites"
               onClick={() => setIsMenuOpen(false)}
               className={({ isActive }) =>
-                `block py-3 px-4 text-lg font-medium transition-colors rounded-lg min-h-[44px] flex items-center justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 active:bg-gray-700 ${
-                  isActive ? 'text-blue-500 bg-gray-700' : 'text-gray-300 hover:text-white hover:bg-gray-700'
+                `block py-3 px-4 text-lg font-medium transition-colors rounded-lg min-h-[44px] flex items-center justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 active:bg-gray-100 dark:active:bg-gray-700 ${
+                  isActive ? 'text-blue-500 bg-gray-100 dark:bg-gray-700' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
                 }`
               }
             >
