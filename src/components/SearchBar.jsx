@@ -67,7 +67,7 @@ export default function SearchBar({ onSearch, placeholder = 'Search for movies..
             }}
             onKeyDown={handleKeyDown}
             placeholder={placeholder}
-            className="w-full pl-12 pr-12 py-3 sm:py-3 text-base sm:text-base bg-white dark:bg-gray-800 text-slate-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-blue-500/20 focus-visible:ring-2 focus-visible:ring-blue-500 disabled:opacity-50 min-h-[44px] border border-slate-300 dark:border-gray-600 placeholder-slate-500 dark:placeholder-gray-400"
+            className="w-full pl-12 pr-12 py-3 sm:py-3 text-base sm:text-base bg-white dark:bg-gray-800 text-slate-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-blue-500/20 focus-visible:ring-2 focus-visible:ring-blue-500 disabled:opacity-50 min-h-[44px] border border-slate-300 dark:border-gray-600 placeholder:text-slate-400 dark:placeholder:text-gray-400"
             aria-label="Search for movies"
             disabled={loading}
           />
@@ -77,7 +77,7 @@ export default function SearchBar({ onSearch, placeholder = 'Search for movies..
             <button
               type="button"
               onClick={handleClear}
-              className="absolute right-3 top-3 sm:right-[7.5rem] sm:top-1/2 sm:-translate-y-1/2 text-slate-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded active:scale-95"
+              className="absolute right-3 top-3 sm:right-[7.5rem] sm:top-1/2 sm:-translate-y-1/2 text-slate-400 dark:text-gray-400 hover:text-slate-700 dark:hover:text-white transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded active:scale-95"
               aria-label="Clear search"
               disabled={loading}
             >
@@ -100,7 +100,7 @@ export default function SearchBar({ onSearch, placeholder = 'Search for movies..
           {/* Search Button */}
           <button
             type="submit"
-            className="btn-primary px-6 py-3 disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] w-full sm:w-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-100 dark:focus-visible:ring-offset-gray-900 active:scale-95 transition-transform shadow-sm hover:shadow"
+            className="btn-primary px-6 py-3 disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] w-full sm:w-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-900 active:scale-95 transition-transform shadow-md shadow-blue-600/30"
             disabled={loading}
             aria-label="Search"
           >

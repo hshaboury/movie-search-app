@@ -57,7 +57,7 @@ export default function Navbar() {
   }, [isMenuOpen]);
 
   return (
-    <nav className={`bg-slate-50 dark:bg-gray-900 shadow-sm dark:shadow-none mb-8 sticky top-0 z-50 transition-shadow duration-300 border-b border-slate-200 dark:border-gray-700 ${isSticky ? 'shadow-md' : ''}`}>
+    <nav className={`bg-white/90 dark:bg-gray-900 backdrop-blur-md dark:backdrop-blur-none shadow-sm dark:shadow-none mb-8 sticky top-0 z-50 transition-shadow duration-300 border-b border-slate-200 dark:border-gray-700 ${isSticky ? 'shadow-md' : ''}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -72,7 +72,7 @@ export default function Navbar() {
               to="/"
               className={({ isActive }) =>
                 `text-lg font-medium transition-colors min-h-[44px] flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-800 rounded px-2 ${
-                  isActive ? 'text-blue-600 dark:text-blue-400' : 'text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                  isActive ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
                 }`
               }
             >
@@ -82,7 +82,7 @@ export default function Navbar() {
               to="/favorites"
               className={({ isActive }) =>
                 `text-lg font-medium transition-colors flex items-center gap-2 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-800 rounded px-2 ${
-                  isActive ? 'text-blue-600 dark:text-blue-400' : 'text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                  isActive ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
                 }`
               }
             >
@@ -138,7 +138,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <div 
-          className={`fixed top-16 right-0 bottom-0 w-64 bg-slate-50 dark:bg-gray-800 shadow-2xl z-50 md:hidden transition-transform duration-300 ease-in-out border-l border-slate-200 dark:border-gray-700 ${
+          className={`fixed top-16 right-0 bottom-0 w-64 bg-white dark:bg-gray-800 shadow-2xl z-50 md:hidden transition-transform duration-300 ease-in-out border-l border-slate-200 dark:border-gray-700 ${
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
@@ -151,7 +151,7 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
               className={({ isActive }) =>
                 `block py-3 px-4 text-lg font-medium transition-colors rounded-lg min-h-[44px] flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 active:bg-slate-100 dark:active:bg-gray-700 ${
-                  isActive ? 'text-blue-600 dark:text-blue-400 bg-slate-100 dark:bg-gray-700' : 'text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-gray-700'
+                  isActive ? 'text-blue-600 dark:text-blue-400 bg-slate-100 dark:bg-gray-700' : 'text-slate-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-gray-700'
                 }`
               }
             >
@@ -162,7 +162,7 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
               className={({ isActive }) =>
                 `block py-3 px-4 text-lg font-medium transition-colors rounded-lg min-h-[44px] flex items-center justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 active:bg-slate-100 dark:active:bg-gray-700 ${
-                  isActive ? 'text-blue-600 dark:text-blue-400 bg-slate-100 dark:bg-gray-700' : 'text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-gray-700'
+                  isActive ? 'text-blue-600 dark:text-blue-400 bg-slate-100 dark:bg-gray-700' : 'text-slate-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-gray-700'
                 }`
               }
             >

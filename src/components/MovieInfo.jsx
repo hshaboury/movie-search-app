@@ -9,28 +9,28 @@ export default function MovieInfo({ director, writer, actors }) {
       {/* Director */}
       {director && director !== 'N/A' && (
         <div>
-          <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">Director</h3>
-          <p className="text-gray-900 dark:text-gray-200">{director}</p>
+          <h3 className="text-sm font-semibold text-slate-500 dark:text-gray-400 mb-2">Director</h3>
+          <p className="text-slate-900 dark:text-gray-200">{director}</p>
         </div>
       )}
 
       {/* Writer */}
       {writer && writer !== 'N/A' && (
         <div>
-          <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">Writer</h3>
-          <p className="text-gray-900 dark:text-gray-200">{writer}</p>
+          <h3 className="text-sm font-semibold text-slate-500 dark:text-gray-400 mb-2">Writer</h3>
+          <p className="text-slate-900 dark:text-gray-200">{writer}</p>
         </div>
       )}
 
       {/* Actors */}
       {actorArray.length > 0 && (
         <div>
-          <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">Cast</h3>
+          <h3 className="text-sm font-semibold text-slate-500 dark:text-gray-400 mb-2">Cast</h3>
           <div className="flex flex-wrap gap-2">
             {actorArray.map((actor, index) => (
               <span
                 key={index}
-                className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm text-gray-900 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors cursor-default"
+                className="px-3 py-1 bg-slate-100 dark:bg-gray-700 rounded-full text-sm text-slate-900 dark:text-gray-200 hover:bg-slate-200 dark:hover:bg-gray-600 transition-colors cursor-default"
               >
                 {actor}
               </span>

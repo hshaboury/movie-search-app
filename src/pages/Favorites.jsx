@@ -81,14 +81,14 @@ export default function Favorites() {
   // Empty state
   if (favorites.length === 0) {
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 min-h-screen">
         <EmptyFavorites />
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 min-h-screen">
       {/* Header Section */}
       <div className="mb-6 sm:mb-8">
         <h1 className="text-3xl sm:text-4xl font-bold mb-2 flex flex-wrap items-center gap-3 text-slate-900 dark:text-white">
@@ -131,7 +131,7 @@ export default function Favorites() {
             }`}
           >
             <Link to={`/movie/${movie.imdbID}`} className="block group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg">
-              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-lg shadow-slate-200/50 dark:shadow-black/20 hover:shadow-lg hover:shadow-slate-300/50 dark:hover:shadow-black/30 border border-slate-200 dark:border-gray-700 h-full relative overflow-hidden transition-all duration-300 hover:scale-105 active:scale-[1.02]">
+              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md shadow-slate-200/60 dark:shadow-lg dark:shadow-black/20 hover:shadow-lg hover:shadow-slate-300/60 dark:hover:shadow-xl dark:hover:shadow-black/30 border border-slate-200 dark:border-gray-700 h-full relative overflow-hidden transition-all duration-300 hover:scale-105 active:scale-[1.02]">
                 {/* Movie Poster */}
                 <img
                   src={movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/300x450/1a1a1a/ffffff?text=No+Poster'}

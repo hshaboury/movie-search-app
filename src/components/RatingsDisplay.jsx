@@ -39,12 +39,12 @@ export default function RatingsDisplay({ movie }) {
     <div className="flex flex-wrap gap-4 mb-6">
       {/* IMDb Rating */}
       {imdbRating && (
-        <div className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700">
+        <div className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-3 rounded-lg border border-slate-200 dark:border-gray-700">
           <span className="text-yellow-500 text-xl">⭐</span>
           <div>
-            <div className="font-bold text-lg text-gray-900 dark:text-white">{imdbRating}/10</div>
+            <div className="font-bold text-lg text-slate-900 dark:text-white">{imdbRating}/10</div>
             {imdbVotes && (
-              <div className="text-xs text-gray-600 dark:text-gray-400">IMDb ({imdbVotes} votes)</div>
+              <div className="text-xs text-slate-600 dark:text-gray-400">IMDb ({imdbVotes} votes)</div>
             )}
           </div>
         </div>
@@ -52,24 +52,24 @@ export default function RatingsDisplay({ movie }) {
 
       {/* Rotten Tomatoes */}
       {rottenTomatoesRating && rtStyle && (
-        <div className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700">
+        <div className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-3 rounded-lg border border-slate-200 dark:border-gray-700">
           <span className="text-2xl">{rtStyle.emoji}</span>
           <div>
             <div className={`font-bold text-lg ${rtStyle.color}`}>{rottenTomatoesRating}</div>
-            <div className="text-xs text-gray-600 dark:text-gray-400">Rotten Tomatoes</div>
+            <div className="text-xs text-slate-600 dark:text-gray-400">Rotten Tomatoes</div>
           </div>
         </div>
       )}
 
       {/* Metacritic */}
       {metascore && (
-        <div className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700">
+        <div className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-3 rounded-lg border border-slate-200 dark:border-gray-700">
           <div className={`w-10 h-10 flex items-center justify-center rounded font-bold ${getMetacriticColor(metascore)}`}>
             {metascore}
           </div>
           <div>
-            <div className="font-semibold text-sm text-gray-900 dark:text-white">Metacritic</div>
-            <div className="text-xs text-gray-600 dark:text-gray-400">Metascore</div>
+            <div className="font-semibold text-sm text-slate-900 dark:text-white">Metacritic</div>
+            <div className="text-xs text-slate-600 dark:text-gray-400">Metascore</div>
           </div>
         </div>
       )}
