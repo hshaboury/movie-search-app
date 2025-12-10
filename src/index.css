@@ -12,6 +12,10 @@
 @layer base {
   * {
     -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Smooth theme transition for color-related properties */
+  body, body * {
     transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   }
 
