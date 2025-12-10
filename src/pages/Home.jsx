@@ -51,7 +51,7 @@ export default function Home() {
   };
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 min-h-screen">
       <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-6 sm:mb-8 text-slate-900 dark:text-white">Discover Movies</h1>
       
       <SearchBar onSearch={handleSearch} loading={loading} />
@@ -63,7 +63,7 @@ export default function Home() {
             <h3 className="text-sm font-semibold text-slate-600 dark:text-gray-400">Recent Searches</h3>
             <button
               onClick={handleClearHistory}
-              className="text-xs text-slate-500 hover:text-slate-700 dark:hover:text-gray-300 transition-colors min-h-[44px] px-2 flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+              className="text-xs text-slate-500 dark:text-slate-500 hover:text-slate-700 dark:hover:text-gray-300 transition-colors min-h-[44px] px-2 flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
             >
               Clear History
             </button>

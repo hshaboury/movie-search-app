@@ -119,7 +119,7 @@ export default function MovieDetails() {
   const formattedReleaseDate = formatReleaseDate(movie.Released);
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 animate-fadeIn max-w-7xl">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 animate-fadeIn max-w-7xl min-h-screen">
       {/* Back Button */}
       <button
         onClick={handleBack}
@@ -246,35 +246,35 @@ export default function MovieDetails() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm sm:text-base">
               {formattedReleaseDate && (
                 <div>
-                  <h3 className="text-sm font-semibold text-slate-600 dark:text-gray-400 mb-1">Released</h3>
+                  <h3 className="text-sm font-semibold text-slate-500 dark:text-gray-400 mb-1">Released</h3>
                   <p className="text-slate-900 dark:text-white">{formattedReleaseDate}</p>
                 </div>
               )}
               
               {movie.Country && movie.Country !== 'N/A' && (
                 <div>
-                  <h3 className="text-sm font-semibold text-slate-600 dark:text-gray-400 mb-1">Country</h3>
+                  <h3 className="text-sm font-semibold text-slate-500 dark:text-gray-400 mb-1">Country</h3>
                   <p className="text-slate-900 dark:text-white">{movie.Country}</p>
                 </div>
               )}
               
               {movie.Language && movie.Language !== 'N/A' && (
                 <div>
-                  <h3 className="text-sm font-semibold text-slate-600 dark:text-gray-400 mb-1">Language</h3>
+                  <h3 className="text-sm font-semibold text-slate-500 dark:text-gray-400 mb-1">Language</h3>
                   <p className="text-slate-900 dark:text-white">{movie.Language}</p>
                 </div>
               )}
               
               {movie.BoxOffice && movie.BoxOffice !== 'N/A' && (
                 <div>
-                  <h3 className="text-sm font-semibold text-slate-600 dark:text-gray-400 mb-1">Box Office</h3>
+                  <h3 className="text-sm font-semibold text-slate-500 dark:text-gray-400 mb-1">Box Office</h3>
                   <p className="text-slate-900 dark:text-white font-semibold">{movie.BoxOffice}</p>
                 </div>
               )}
               
               {movie.Production && movie.Production !== 'N/A' && (
                 <div>
-                  <h3 className="text-sm font-semibold text-slate-600 dark:text-gray-400 mb-1">Production</h3>
+                  <h3 className="text-sm font-semibold text-slate-500 dark:text-gray-400 mb-1">Production</h3>
                   <p className="text-slate-900 dark:text-white">{movie.Production}</p>
                 </div>
               )}
@@ -283,7 +283,7 @@ export default function MovieDetails() {
             {/* Awards */}
             {movie.Awards && movie.Awards !== 'N/A' && (
               <div className="mt-4 p-4 bg-slate-100 dark:bg-gray-800/50 rounded-lg border border-slate-200 dark:border-gray-700">
-                <h3 className="text-sm font-semibold text-slate-600 dark:text-gray-400 mb-2 flex items-center gap-2">
+                <h3 className="text-sm font-semibold text-slate-500 dark:text-gray-400 mb-2 flex items-center gap-2">
                   🏆 Awards
                 </h3>
                 <p className="text-slate-900 dark:text-white text-sm sm:text-base">{movie.Awards}</p>
