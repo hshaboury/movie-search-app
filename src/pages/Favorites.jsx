@@ -91,19 +91,19 @@ export default function Favorites() {
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
       {/* Header Section */}
       <div className="mb-6 sm:mb-8">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-2 flex flex-wrap items-center gap-3 text-gray-900 dark:text-white">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-2 flex flex-wrap items-center gap-3 text-slate-900 dark:text-white">
           My Favorites
           <span className="bg-blue-600 text-white text-lg sm:text-xl font-semibold px-3 py-1 rounded-full">
             {favorites.length}
           </span>
         </h1>
-        <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+        <p className="text-slate-600 dark:text-gray-400 text-sm sm:text-base">
           {favorites.length === 1 ? '1 movie' : `${favorites.length} movies`} in your collection
         </p>
       </div>
 
       {/* Divider */}
-      <hr className="border-gray-300 dark:border-gray-700 mb-4 sm:mb-6" />
+      <hr className="border-slate-300 dark:border-gray-700 mb-4 sm:mb-6" />
 
       {/* Sort Controls and Clear All Button */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-6">
@@ -119,7 +119,7 @@ export default function Favorites() {
       </div>
 
       {/* Divider */}
-      <hr className="border-gray-300 dark:border-gray-700 mb-6 sm:mb-8" />
+      <hr className="border-slate-300 dark:border-gray-700 mb-6 sm:mb-8" />
 
       {/* Movie Grid - Responsive: 2 cols (mobile), 3 cols (tablet), 4-5 cols (desktop) */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 lg:gap-5 animate-fadeIn">
@@ -131,7 +131,7 @@ export default function Favorites() {
             }`}
           >
             <Link to={`/movie/${movie.imdbID}`} className="block group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg">
-              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg border border-gray-200 dark:border-gray-700 h-full relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-[1.02]">
+              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-lg shadow-slate-200/50 dark:shadow-black/20 hover:shadow-lg hover:shadow-slate-300/50 dark:hover:shadow-black/30 border border-slate-200 dark:border-gray-700 h-full relative overflow-hidden transition-all duration-300 hover:scale-105 active:scale-[1.02]">
                 {/* Movie Poster */}
                 <img
                   src={movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/300x450/1a1a1a/ffffff?text=No+Poster'}
@@ -142,10 +142,10 @@ export default function Favorites() {
                 
                 {/* Movie Info */}
                 <div className="p-3 sm:p-4">
-                  <h3 className="text-base sm:text-lg font-semibold mb-1 line-clamp-2 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
+                  <h3 className="text-base sm:text-lg font-semibold mb-1 line-clamp-2 text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
                     {movie.Title}
                   </h3>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">{movie.Year}</p>
+                  <p className="text-slate-600 dark:text-gray-400 text-sm">{movie.Year}</p>
                 </div>
               </div>
             </Link>

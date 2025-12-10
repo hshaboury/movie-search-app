@@ -4,7 +4,7 @@ export default function MovieList({ movies, totalResults, currentPage = 1 }) {
   if (!movies || movies.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-gray-600 dark:text-gray-400 text-lg">No movies found</p>
+        <p className="text-slate-600 dark:text-gray-400 text-lg">No movies found</p>
       </div>
     );
   }
@@ -17,9 +17,9 @@ export default function MovieList({ movies, totalResults, currentPage = 1 }) {
       {/* Results Count Header */}
       {totalResults > 0 && (
         <div className="mb-6">
-          <p className="text-gray-600 dark:text-gray-400 text-center text-sm sm:text-base">
-            Showing <span className="text-gray-900 dark:text-white font-semibold">{resultsStart}-{resultsEnd}</span> of{' '}
-            <span className="text-gray-900 dark:text-white font-semibold">{totalResults}</span> results
+          <p className="text-slate-600 dark:text-gray-400 text-center text-sm sm:text-base">
+            Showing <span className="text-slate-900 dark:text-white font-semibold">{resultsStart}-{resultsEnd}</span> of{' '}
+            <span className="text-slate-900 dark:text-white font-semibold">{totalResults}</span> results
           </p>
         </div>
       )}

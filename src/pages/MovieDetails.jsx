@@ -177,14 +177,14 @@ export default function MovieDetails() {
         <div className="md:col-span-3 lg:col-span-2 space-y-4 sm:space-y-6">
           {/* Header */}
           <div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 leading-tight text-gray-900 dark:text-white">
-              {movie.Title} {movie.Year !== 'N/A' && <span className="text-gray-600 dark:text-gray-400 text-xl sm:text-2xl md:text-3xl">({movie.Year})</span>}
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 leading-tight text-slate-900 dark:text-white">
+              {movie.Title} {movie.Year !== 'N/A' && <span className="text-slate-600 dark:text-gray-400 text-xl sm:text-2xl md:text-3xl">({movie.Year})</span>}
             </h1>
             
             {/* Meta Info */}
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-slate-600 dark:text-gray-400 text-sm sm:text-base">
               {movie.Rated && movie.Rated !== 'N/A' && (
-                <span className="px-2 py-1 border border-gray-400 dark:border-gray-500 rounded text-xs sm:text-sm font-semibold">
+                <span className="px-2 py-1 border border-slate-400 dark:border-gray-500 rounded text-xs sm:text-sm font-semibold">
                   {movie.Rated}
                 </span>
               )}
@@ -208,12 +208,12 @@ export default function MovieDetails() {
           )}
 
           {/* Divider */}
-          <hr className="border-gray-300 dark:border-gray-700" />
+          <hr className="border-slate-300 dark:border-gray-700" />
 
           {/* Plot */}
           <div>
-            <h2 className="text-lg sm:text-xl font-semibold mb-3 text-gray-700 dark:text-gray-300">Plot</h2>
-            <p className="text-gray-800 dark:text-gray-200 leading-relaxed text-sm sm:text-base">{displayPlot}</p>
+            <h2 className="text-lg sm:text-xl font-semibold mb-3 text-slate-700 dark:text-gray-300">Plot</h2>
+            <p className="text-slate-700 dark:text-gray-300 leading-relaxed text-sm sm:text-base">{displayPlot}</p>
             {shouldTruncatePlot && (
               <button
                 onClick={() => setExpandPlot(!expandPlot)}
@@ -225,11 +225,11 @@ export default function MovieDetails() {
           </div>
 
           {/* Divider */}
-          <hr className="border-gray-300 dark:border-gray-700" />
+          <hr className="border-slate-300 dark:border-gray-700" />
 
           {/* Cast & Crew */}
           <div>
-            <h2 className="text-lg sm:text-xl font-semibold mb-4 text-gray-700 dark:text-gray-300">Cast & Crew</h2>
+            <h2 className="text-lg sm:text-xl font-semibold mb-4 text-slate-700 dark:text-gray-300">Cast & Crew</h2>
             <MovieInfo 
               director={movie.Director}
               writer={movie.Writer}
@@ -238,55 +238,55 @@ export default function MovieDetails() {
           </div>
 
           {/* Divider */}
-          <hr className="border-gray-300 dark:border-gray-700" />
+          <hr className="border-slate-300 dark:border-gray-700" />
 
           {/* Additional Information */}
           <div>
-            <h2 className="text-lg sm:text-xl font-semibold mb-4 text-gray-700 dark:text-gray-300">Additional Information</h2>
+            <h2 className="text-lg sm:text-xl font-semibold mb-4 text-slate-700 dark:text-gray-300">Additional Information</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm sm:text-base">
               {formattedReleaseDate && (
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-1">Released</h3>
-                  <p className="text-gray-900 dark:text-gray-200">{formattedReleaseDate}</p>
+                  <h3 className="text-sm font-semibold text-slate-600 dark:text-gray-400 mb-1">Released</h3>
+                  <p className="text-slate-900 dark:text-white">{formattedReleaseDate}</p>
                 </div>
               )}
               
               {movie.Country && movie.Country !== 'N/A' && (
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-1">Country</h3>
-                  <p className="text-gray-900 dark:text-gray-200">{movie.Country}</p>
+                  <h3 className="text-sm font-semibold text-slate-600 dark:text-gray-400 mb-1">Country</h3>
+                  <p className="text-slate-900 dark:text-white">{movie.Country}</p>
                 </div>
               )}
               
               {movie.Language && movie.Language !== 'N/A' && (
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-1">Language</h3>
-                  <p className="text-gray-900 dark:text-gray-200">{movie.Language}</p>
+                  <h3 className="text-sm font-semibold text-slate-600 dark:text-gray-400 mb-1">Language</h3>
+                  <p className="text-slate-900 dark:text-white">{movie.Language}</p>
                 </div>
               )}
               
               {movie.BoxOffice && movie.BoxOffice !== 'N/A' && (
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-1">Box Office</h3>
-                  <p className="text-gray-900 dark:text-gray-200 font-semibold">{movie.BoxOffice}</p>
+                  <h3 className="text-sm font-semibold text-slate-600 dark:text-gray-400 mb-1">Box Office</h3>
+                  <p className="text-slate-900 dark:text-white font-semibold">{movie.BoxOffice}</p>
                 </div>
               )}
               
               {movie.Production && movie.Production !== 'N/A' && (
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-1">Production</h3>
-                  <p className="text-gray-900 dark:text-gray-200">{movie.Production}</p>
+                  <h3 className="text-sm font-semibold text-slate-600 dark:text-gray-400 mb-1">Production</h3>
+                  <p className="text-slate-900 dark:text-white">{movie.Production}</p>
                 </div>
               )}
             </div>
 
             {/* Awards */}
             {movie.Awards && movie.Awards !== 'N/A' && (
-              <div className="mt-4 p-4 bg-gray-100 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700">
-                <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2 flex items-center gap-2">
+              <div className="mt-4 p-4 bg-slate-100 dark:bg-gray-800/50 rounded-lg border border-slate-200 dark:border-gray-700">
+                <h3 className="text-sm font-semibold text-slate-600 dark:text-gray-400 mb-2 flex items-center gap-2">
                   🏆 Awards
                 </h3>
-                <p className="text-gray-900 dark:text-gray-200 text-sm sm:text-base">{movie.Awards}</p>
+                <p className="text-slate-900 dark:text-white text-sm sm:text-base">{movie.Awards}</p>
               </div>
             )}
           </div>

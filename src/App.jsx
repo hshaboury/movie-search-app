@@ -9,7 +9,7 @@ function App() {
   return (
     <FavoritesProvider>
       <Router>
-        <div className="min-h-screen">
+        <div className="min-h-screen bg-slate-100 dark:bg-gray-900">
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
